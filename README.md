@@ -10,7 +10,7 @@
 
 ---
 
-![Hero Dewantara](frontend/public/asetreadme/dewantara2.png)
+![Hero Dewantara](frontend/public/asetreadme/dewantara.png)
 
 ## Daftar Isi
 
