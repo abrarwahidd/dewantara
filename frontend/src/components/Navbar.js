@@ -1,106 +1,63 @@
 // src/components/Navbar.js
-import React, { useState, useEffect } from "react"; // <-- Impor useEffect
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
-import siteLogo from "../assets/images/logoo2.png";
+// Ganti dengan file logo Dewantara (logo bulat merah)
+import siteLogo from "../assets/images/LOGO-D.png";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false); // <-- STATE BARU untuk melacak scroll
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const closeMenu = () => setIsMenuOpen(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // --- LOGIKA BARU UNTUK DETEKSI SCROLL ---
   useEffect(() => {
-    const handleScroll = () => {
-      // Jika posisi scroll vertikal lebih dari 10px, set isScrolled menjadi true
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    // Tambahkan event listener saat komponen pertama kali dirender
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
-
-    // Hapus event listener saat komponen dilepas (penting untuk performa)
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []); // Array kosong berarti efek ini hanya berjalan sekali (saat mount dan unmount)
-  // --- AKHIR DARI LOGIKA BARU ---
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    // Tambahkan class 'scrolled' secara dinamis berdasarkan state
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
         <div className="navbar-left">
-          <Link
-            to="/"
-            className="navbar-brand"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <img src={siteLogo} alt="Bvision Logo" className="navbar-logo" />
-            <span>Bvision</span> {/* Bungkus teks dengan span */}
+          <Link to="/" className="navbar-brand" onClick={closeMenu}>
+            <img src={siteLogo} alt="Dewantara Logo" className="navbar-logo" />
+            <span>DEWANTARA</span>
           </Link>
         </div>
 
         <div className={`navbar-center ${isMenuOpen ? "active" : ""}`}>
-          <NavLink
-            to="/"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <NavLink to="/" end className="nav-link" onClick={closeMenu}>
             Beranda
           </NavLink>
-          <NavLink
-            to="/belajar"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Belajar
+          <NavLink to="/tentang-kami" className="nav-link" onClick={closeMenu}>
+            Tentang Dewantara
           </NavLink>
-          <NavLink
-            to="/kamus"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <NavLink to="/belajar" className="nav-link" onClick={closeMenu}>
+            Mulai Belajar
+          </NavLink>
+          <NavLink to="/gerakan-bebas" className="nav-link" onClick={closeMenu}>
+            Gerakan Bebas
+          </NavLink>
+          <NavLink to="/kamus" className="nav-link" onClick={closeMenu}>
             Kamus
           </NavLink>
-          <NavLink
-            to="/artikel"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Artikel
-          </NavLink>
-          <NavLink
-            to="/tentang-kami"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Tentang Kami
-          </NavLink>
-          <Link
-            to="/hubungi-kami"
-            className="mobile-cta"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Hubungi Kami
+          <Link to="/hubungi-kami" className="mobile-cta" onClick={closeMenu}>
+            Hubungi
           </Link>
         </div>
 
         <div className="navbar-right">
           <Link to="/hubungi-kami" className="cta-button">
-            Hubungi Kami
+            Hubungi
           </Link>
           <button
             className={`hamburger ${isMenuOpen ? "active" : ""}`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             <span className="hamburger-bar"></span>
             <span className="hamburger-bar"></span>

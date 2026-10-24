@@ -1,220 +1,221 @@
-/* src/components/Navbar.css (VERSI LENGKAP & DIPERBAIKI) */
+/* src/components/Navbar.css */
 
-.navbar {
-  width: 100%;
-  padding: 1.5rem 2rem;
-  background-color: transparent;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efek saat di-scroll */
-.navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.8); /* Latar putih semi-transparan */
-  backdrop-filter: blur(10px); /* Efek blur "kaca buram" */
-  -webkit-backdrop-filter: blur(10px); /* Untuk support browser Safari */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Shadow lembut untuk memberi kedalaman */
-}
-
-.navbar-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar-left .navbar-brand {
-  display: flex; /* Aktifkan flexbox */
-  align-items: center; /* Sejajarkan logo & teks secara vertikal */
-  gap: 0.75rem; /* Beri jarak antara logo dan teks */
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #4cbdd9;
-  text-decoration: none;
-}
-
-.navbar-logo {
-  height: 30px; /* Atur tinggi logo (sesuaikan nilainya) */
-  width: auto; /* Biarkan lebar menyesuaikan */
-  display: block; /* Hilangkan spasi ekstra di bawah gambar */
-}
-
-.navbar-center {
-  display: flex;
-  gap: 3rem;
-}
-
-.navbar-center .mobile-cta {
-  display: none; /* Sembunyikan tombol ini di desktop */
-}
-
-.nav-link {
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #4a5568;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-.nav-link:hover {
-  color: #4cbdd9;
-}
-.nav-link.active {
-  color: #4cbdd9;
-  font-weight: 700;
-}
-
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* Hapus tombol CTA lama dari desktop */
-.navbar-right .cta-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #4cbdd9;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px -5px rgba(59, 130, 246, 0.4);
-}
-
-.navbar-right .cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px -5px rgba(59, 130, 246, 0.5);
-}
-
-/* Tombol Hamburger (awalnya disembunyikan) */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
-}
-
-.hamburger-bar {
-  width: 2rem;
-  height: 0.25rem;
-  background-color: #333;
-  border-radius: 10px;
-}
-
-/* ===== RESPONSIVE ===== */
-/* Pastikan blok ini terpisah dengan benar */
-@media (max-width: 768px) {
-  .navbar-center {
+/* ===== SKALA GLOBAL =====
+   Semua ukuran memakai rem, jadi cukup atur ukuran dasar di sini.
+   Layar laptop (±1300-1600px) sedikit diperkecil agar proporsinya seperti desain;
+   layar besar naik bertahap sampai 16px. Mobile tetap 16px.
+   Ingin lebih kecil/besar? Ubah angka 14px (batas bawah) dan 16px (batas atas). */
+   @media (min-width: 769px) {
+    html {
+      font-size: clamp(14px, 0.5vw + 7px, 16px);
+    }
+  }
+  
+  .navbar {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background-color: transparent;
     position: fixed;
     top: 0;
-    right: 0;
-    left: auto;
-    width: 70%;
-    max-width: 300px;
-    height: 100vh;
-    background-color: rgba(26, 32, 44, 0.8);
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    gap: 2rem;
-    padding: 6rem 2rem;
-    box-shadow: -10px 0px 30px -15px rgba(0, 0, 0, 0.3);
-    z-index: 5;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   }
-
-  .navbar-center.active {
-    transform: translateX(0);
+  
+  .navbar-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-
-  .navbar-brand span {
-    display: none;
+  
+  /* --- Brand --- */
+  .navbar-left .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: var(--primary, #b6252a);
+    text-decoration: none;
   }
   .navbar-logo {
-    height: 35px; /* Atur tinggi logo (sesuaikan nilainya) */
-    width: auto; /* Biarkan lebar menyesuaikan */
-    display: block; /* Hilangkan spasi ekstra di bawah gambar */
+    height: 30px;
+    width: auto;
+    display: block;
   }
-
-  .nav-link {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #cbd5e1;
-    text-align: right;
-    transition: color 0.3s ease;
+  
+  /* --- Menu tengah --- */
+  .navbar-center {
+    display: flex;
+    gap: 2.25rem;
   }
-
-  .nav-link:hover,
-  .nav-link.active {
-    color: #ffffff;
-    font-weight: 700;
-  }
-
-  /* --- PERBAIKAN UTAMA DI SINI --- */
-
-  /* 1. Aturan untuk menampilkan tombol di dalam menu mobile */
   .navbar-center .mobile-cta {
-    display: inline-block; /* Pastikan tombol ini terlihat */
-    margin-top: 0rem;
-    padding: 0.8rem 2rem;
-    font-size: 1.1rem;
-    text-align: center;
-    /* Gunakan style tombol yang konsisten */
-    background-color: #4cbdd9;
-    border-radius: 8px;
-    text-decoration: none;
-    color: white;
-  }
-
-  /* 2. Aturan untuk menyembunyikan tombol di navbar kanan */
-  .navbar-right .cta-button {
     display: none;
   }
-
-  /* --- AKHIR PERBAIKAN --- */
-
-  .hamburger {
+  
+  .nav-link {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4a5568;
+    text-decoration: none;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .nav-link:hover {
+    color: var(--primary, #b6252a);
+  }
+  .nav-link.active {
+    color: var(--primary, #b6252a);
+    border-bottom-color: var(--primary, #b6252a);
+  }
+  .nav-link:focus-visible,
+  .navbar-brand:focus-visible {
+    outline: 3px solid #fbe3e3;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  
+  /* --- Kanan --- */
+  .navbar-right {
     display: flex;
-    margin-left: 1rem;
+    align-items: center;
+    gap: 1rem;
+  }
+  .navbar-right .cta-button {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--primary, #b6252a);
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px -5px rgba(182, 37, 42, 0.45);
+  }
+  .navbar-right .cta-button:hover {
+    background-color: var(--primary-dark, #9b1f24);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -5px rgba(182, 37, 42, 0.5);
+  }
+  
+  /* --- Hamburger --- */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
     z-index: 10;
-    position: relative;
   }
-
   .hamburger-bar {
+    width: 2rem;
+    height: 0.25rem;
     background-color: #333;
-    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
   }
-
-  .hamburger.active .hamburger-bar {
-    background-color: #ffffff;
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .navbar-center {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: auto;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: rgba(26, 32, 44, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-end;
+      gap: 2rem;
+      padding: 6rem 2rem;
+      box-shadow: -10px 0 30px -15px rgba(0, 0, 0, 0.3);
+      z-index: 5;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .navbar-center.active {
+      transform: translateX(0);
+    }
+  
+    .navbar-brand span {
+      display: none;
+    }
+    .navbar-logo {
+      height: 35px;
+    }
+  
+    .nav-link {
+      font-size: 1.4rem;
+      color: #cbd5e1;
+      text-align: right;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: #ffffff;
+      font-weight: 700;
+      border-bottom: none;
+    }
+  
+    .navbar-center .mobile-cta {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      background-color: var(--primary, #b6252a);
+      border-radius: 8px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+    .navbar-right .cta-button {
+      display: none;
+    }
+  
+    .hamburger {
+      display: flex;
+      margin-left: 1rem;
+      position: relative;
+    }
+    .hamburger-bar {
+      background-color: #333;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger.active .hamburger-bar {
+      background-color: #ffffff;
+    }
+    .hamburger.active .hamburger-bar:nth-child(1) {
+      transform: translateY(0.65rem) rotate(45deg);
+    }
+    .hamburger.active .hamburger-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active .hamburger-bar:nth-child(3) {
+      transform: translateY(-0.65rem) rotate(-45deg);
+    }
   }
-
-  .hamburger.active .hamburger-bar:nth-child(1) {
-    transform: translateY(0.65rem) rotate(45deg);
-  }
-
-  .hamburger.active .hamburger-bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .hamburger-bar:nth-child(3) {
-    transform: translateY(-0.65rem) rotate(-45deg);
-  }
-}
