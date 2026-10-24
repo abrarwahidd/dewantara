@@ -2,46 +2,43 @@
 
 .tentang-kami-page {
   width: 100%;
+  background-color: var(--page-bg, #f9fafb);
 }
 
-/* ===== Header Halaman ===== */
+/* ===== Header ===== */
 .tentang-header {
   text-align: center;
-  padding: 7rem 2rem;
-  background-color: #f8f9fa;
-  width: 100%;
+  padding: 7rem 2rem 4rem;
   position: relative;
   overflow: hidden;
 }
+/* Cahaya pink lembut di pojok kiri atas */
 .tentang-header::before {
   content: "";
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(
-    circle,
-    rgba(59, 130, 246, 0.1) 0%,
-    transparent 70%
-  );
-  top: -80px;
-  left: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #fdeaea 0%, transparent 70%);
+  top: -90px;
+  left: -90px;
+  pointer-events: none;
 }
 .tentang-header h1 {
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
+  font-weight: 700;
   color: #1a202c;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
   z-index: 1;
 }
 .tentang-header p {
   font-family: "Inter", sans-serif;
   font-size: 1.15rem;
+  line-height: 1.8;
   color: #4a5568;
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -49,7 +46,7 @@
 
 /* ===== Visi & Misi ===== */
 .visi-misi-section {
-  padding: 5rem 2rem;
+  padding: 7rem 2rem 6rem;
   max-width: 1140px;
   margin: 0 auto;
 }
@@ -66,33 +63,39 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
-  background-color: #eef2ff;
-  color: #4f46e5;
+  background-color: #f9dcdc;
+  color: var(--primary, #b6252a);
   margin-bottom: 1.5rem;
 }
 .visi-misi-item h3 {
   font-family: "Poppins", sans-serif;
   font-size: 1.8rem;
+  font-weight: 700;
   color: #1a202c;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.25rem;
 }
 .visi-misi-item p,
 .visi-misi-item ul {
   font-family: "Inter", sans-serif;
+  font-size: 1rem;
   color: #4a5568;
-  line-height: 1.8;
+  line-height: 1.9;
   padding: 0;
   margin: 0;
+}
+.visi-misi-item p strong {
+  color: #2d3748;
+  font-weight: 600;
 }
 .visi-misi-item ul {
   list-style: none;
   text-align: left;
 }
 .visi-misi-item li {
-  padding-left: 2rem;
+  padding-left: 2.25rem;
   position: relative;
   margin-bottom: 1rem;
 }
@@ -100,206 +103,149 @@
   margin-bottom: 0;
 }
 .visi-misi-item li::before {
-  content: "✓";
-  color: #34d399;
+  content: "\2713";
+  color: var(--primary-light, #e61f2a);
   font-weight: bold;
   position: absolute;
   left: 0;
 }
 
-/* ===== Teknologi Section (Dark Mode) ===== */
-.teknologi-section {
-  padding: 6rem 2rem;
-  background-color: #1a202c;
-  color: #e2e8f0;
-  text-align: center;
+/* ===== Masalah yang Kami Atasi ===== */
+.masalah-section {
+  padding: 3rem 2rem 7rem;
 }
-.teknologi-container {
-  max-width: 1024px;
+.masalah-container {
+  max-width: 1140px;
   margin: 0 auto;
 }
-.teknologi-section h2 {
-  color: #ffffff;
+.masalah-title {
   font-family: "Poppins", sans-serif;
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--primary, #b6252a);
+  text-align: center;
+  margin: 0 0 0.75rem;
 }
-.teknologi-subtitle {
-  color: #94a3b8;
+.masalah-subtitle {
   font-family: "Inter", sans-serif;
-  font-size: 1.1rem;
-  margin-bottom: 4rem;
-}
-.teknologi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-.teknologi-card {
-  background-color: #2d3748;
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
+  font-size: 1.05rem;
+  color: #4a5568;
   text-align: center;
-  border: 1px solid #4a5568;
-  transition: all 0.3s ease;
-}
-.teknologi-card:hover {
-  transform: translateY(-8px);
-  border-color: #3b82f6;
-}
-.teknologi-icon {
-  height: 50px;
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: center;
-}
-.teknologi-icon svg {
-  height: 100%;
-  width: auto;
-}
-.teknologi-icon.react svg {
-  fill: #61dafb;
-}
-.teknologi-icon.python svg {
-  fill: #ffd43b;
-}
-.teknologi-icon.ml svg {
-  stroke: #34d399;
-}
-.teknologi-card h4 {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.25rem;
-  margin: 0;
-  color: #ffffff;
-}
-
-/* ===== Pengembang Section ===== */
-.pengembang-section {
-  padding: 7rem 2rem;
-}
-.pengembang-container {
-  max-width: 900px;
   margin: 0 auto;
+  max-width: 720px;
+  line-height: 1.7;
+}
+.masalah-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+  align-items: stretch;
+}
+.masalah-card {
+  background: #ffffff;
+  border-left: 4px solid var(--primary-light, #e61f2a);
+  border-radius: 14px;
+  padding: 2.25rem 2.25rem 2.5rem;
+  box-shadow: 0 4px 24px -6px rgba(26, 32, 44, 0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.masalah-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -8px rgba(26, 32, 44, 0.2);
+}
+.masalah-icon {
   display: flex;
   align-items: center;
-  gap: 4rem;
-}
-.profil-picture {
-  flex-shrink: 0;
-  width: 200px;
-  height: 200px;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
   border-radius: 50%;
-  background-color: #eef2ff;
-  border: 5px solid white;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+  background-color: #f9dcdc;
+  color: var(--primary, #b6252a);
+  margin-bottom: 1.25rem;
 }
-.profil-picture img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.profil-info h2 {
-  font-size: 1.2rem;
+.masalah-card h3 {
   font-family: "Poppins", sans-serif;
-  color: #4cbdd9;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0 0 1rem 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary, #b6252a);
+  margin: 0 0 0.85rem;
 }
-.profil-info h3 {
-  font-family: "Poppins", sans-serif;
-  font-size: 2.5rem;
-  margin: 0 0 0.5rem 0;
-  color: #1a202c;
-}
-.profil-info h4 {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #718096;
-  margin: 0 0 1.5rem 0;
-}
-.profil-bio {
+.masalah-card p {
   font-family: "Inter", sans-serif;
+  font-size: 1rem;
   line-height: 1.8;
   color: #4a5568;
-  margin-bottom: 2rem;
+  margin: 0;
 }
-.profil-links a {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  color: #4cbdd9;
-  text-decoration: none;
-  margin-right: 1.5rem;
-}
-.profil-links a:hover {
-  text-decoration: underline;
+
+@media (prefers-reduced-motion: reduce) {
+  .masalah-card {
+    transition: none;
+  }
 }
 
 /* ===== Responsif ===== */
-@media (max-width: 768px) {
-  /* ===== Penyesuaian Header ===== */
-  .tentang-header {
-    padding: 5rem 1.5rem; /* Kurangi padding */
-  }
-
-  .tentang-header h1 {
-    font-size: 1.7rem;
-    max-width: none; /* Hapus batasan lebar agar bisa center dengan benar */
-  }
-
-  .tentang-header p {
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: none; /* Hapus batasan lebar */
-  }
-
-  /* ===== Penyesuaian Visi & Misi ===== */
-  .visi-misi-section {
-    padding: 4rem 1.5rem;
-  }
-  .visi-misi-container {
-    flex-direction: column; /* Tumpuk vertikal */
-    gap: 3rem;
-  }
-  .visi-misi-item {
-    text-align: center;
-  }
-  .visi-misi-item ul {
-    text-align: left; /* Biarkan list tetap rata kiri agar rapi */
-  }
-
-  /* ===== Penyesuaian Teknologi ===== */
-  .teknologi-section {
-    padding: 4rem 1.5rem;
-  }
-  .teknologi-section h2 {
-    font-size: 2.2rem;
-  }
-
-  /* ===== Penyesuaian Profil Pengembang ===== */
-  .pengembang-section {
-    padding: 4rem 1.5rem;
-  }
-  .pengembang-container {
-    flex-direction: column; /* Tumpuk vertikal */
-    text-align: center;
-    align-items: center;
-    gap: 2rem;
-  }
-  .profil-info {
-    text-align: center;
-  }
-  .profil-info h3 {
-    font-size: 2rem;
-  }
-  .profil-links {
-    justify-content: center; /* Pusatkan link sosial media */
-    display: flex;
+@media (max-width: 900px) {
+  .masalah-grid {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  .profil-links a {
-    margin-right: 0; /* Hapus margin kanan */
+}
+
+@media (max-width: 768px) {
+  .tentang-header {
+    padding: 6rem 1.5rem 2.5rem;
   }
+  .tentang-header h1 {
+    font-size: 1.9rem;
+    max-width: none;
+  }
+  .tentang-header p {
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: none;
+  }
+
+  .visi-misi-section {
+    padding: 3rem 1.5rem 4rem;
+  }
+  .visi-misi-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .item-icon {
+    width: 72px;
+    height: 72px;
+  }
+  .visi-misi-item h3 {
+    font-size: 1.5rem;
+  }
+
+  .masalah-section {
+    padding: 1rem 1.5rem 4.5rem;
+  }
+  .masalah-title {
+    font-size: 1.8rem;
+  }
+  .masalah-subtitle {
+    font-size: 0.95rem;
+  }
+  .masalah-grid {
+    margin-top: 2.5rem;
+  }
+  .masalah-card {
+    padding: 1.75rem 1.5rem 2rem;
+  }
+}
+
+/* ===== LEBAR PENUH =====
+   Jika pembungkus halaman di App.js / App.css memakai display:flex (rata tengah),
+   elemen halaman menyusut mengikuti isinya. width: 100 persen memaksanya mengisi layar. */
+.tentang-kami-page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }

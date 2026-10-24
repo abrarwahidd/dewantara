@@ -1,0 +1,186 @@
+/* src/components/CameraCard.css
+   Juga berisi .back-pill (tombol "← Kembali") yang dipakai beberapa halaman. */
+
+   .camera-card {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #f7f9fc;
+    box-shadow: 0 20px 40px -16px rgba(15, 23, 42, 0.3);
+  }
+  
+  /* --- Area video --- */
+  .camera-stage {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(180deg, #172033 0%, #111a2e 100%);
+  }
+  .camera-stage video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .camera-stage video.is-on {
+    opacity: 1;
+  }
+  .camera-stage video.flipped {
+    transform: scaleX(-1); /* efek cermin, hanya pratinjau */
+  }
+  .camera-flip {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 2;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.55);
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .camera-flip.active {
+    background: var(--primary, #b6252a);
+    border-color: transparent;
+  }
+  .camera-flip:focus-visible {
+    outline: 3px solid #fbd3d3;
+    outline-offset: 2px;
+  }
+  .camera-guide {
+    position: absolute;
+    left: 50%;
+    top: 14%;
+    width: 60%;
+    height: 72%;
+    transform: translateX(-50%);
+    border: 2px dashed rgba(255, 255, 255, 0.75);
+    border-radius: 14px;
+    pointer-events: none;
+  }
+  .camera-guide span {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0.35rem;
+    white-space: nowrap;
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* --- Bar bawah --- */
+  .camera-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1.25rem;
+    min-height: 88px;
+  }
+  .camera-toggle {
+    flex-shrink: 0;
+    width: 78px;
+    height: 62px;
+    border: none;
+    border-radius: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .camera-toggle.off {
+    background: linear-gradient(180deg, #d9252e 0%, #b6252a 100%);
+    box-shadow: 0 6px 14px -4px rgba(182, 37, 42, 0.55);
+  }
+  .camera-toggle.on {
+    background: linear-gradient(180deg, #374151 0%, #1f2937 100%);
+    box-shadow: 0 6px 14px -4px rgba(31, 41, 55, 0.5);
+  }
+  .camera-toggle:hover {
+    transform: translateY(-2px);
+  }
+  .camera-toggle:focus-visible {
+    outline: 3px solid #fbd3d3;
+    outline-offset: 3px;
+  }
+  .camera-bar-content {
+    flex: 1;
+    min-width: 0;
+    font-family: "Inter", sans-serif;
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  .camera-error {
+    color: #b91c1c;
+    font-weight: 500;
+  }
+  
+  /* Hasil prediksi (dipakai di bar) */
+  .prediction {
+    display: flex;
+    flex-direction: column;
+  }
+  .prediction-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+  .prediction-value {
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--primary, #b6252a);
+  }
+  
+  /* --- Tombol kembali (dipakai di Gerakan Bebas & Level) --- */
+  .back-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.6rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #1f2937;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px -6px rgba(15, 23, 42, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .back-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px -6px rgba(15, 23, 42, 0.25);
+  }
+  .back-pill:focus-visible {
+    outline: 3px solid #fbd3d3;
+    outline-offset: 3px;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .camera-toggle,
+    .back-pill,
+    .camera-stage video {
+      transition: none;
+    }
+  }

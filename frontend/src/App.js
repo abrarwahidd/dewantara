@@ -11,6 +11,7 @@ import HubungiKamiPage from "./pages/HubungiKamiPage";
 import ArticleDetailPage from "./pages/ArticleDetailPage";
 import KamusPage from "./pages/KamusPage";
 import TentangBisindoPage from "./pages/TentangBisindoPage";
+import GerakanBebasPage from "./pages/GerakanBebasPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<BerandaPage />} />
           <Route path="/belajar" element={<BelajarPage />} />
+          <Route path="/gerakan-bebas" element={<GerakanBebasPage />} />
           <Route path="/kamus" element={<KamusPage />} />
           <Route path="/artikel" element={<ArtikelPage />} />
           <Route path="/artikel/:slug" element={<ArticleDetailPage />} />

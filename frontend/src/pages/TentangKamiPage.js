@@ -1,157 +1,136 @@
 // src/pages/TentangKamiPage.js
 import React from "react";
 import "./TentangKamiPage.css";
-// Anda bisa menyiapkan foto profil di sini, contoh:
-import profilePic from "../assets/images/logoo2.png";
-import logoReact from "../assets/images/logo-react2.png";
-import logoPython from "../assets/images/logo-python.png";
-import logoMl from "../assets/images/logo-ml.png";
+
+/* Ikon (inline SVG, warna mengikuti `currentColor`) */
+const svgProps = {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.5,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": "true",
+};
+
+const IconEye = () => (
+  <svg {...svgProps} width="42" height="42">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+    <circle cx="12" cy="12" r="3" />
+  </svg>
+);
+const IconCheckSquare = () => (
+  <svg {...svgProps} width="42" height="42">
+    <polyline points="9 11 12 14 22 4" />
+    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+  </svg>
+);
+const IconBook = () => (
+  <svg {...svgProps} width="32" height="32">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+  </svg>
+);
+const IconHome = () => (
+  <svg {...svgProps} width="32" height="32">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+    <polyline points="9 22 9 12 15 12 15 22" />
+  </svg>
+);
+const IconMessage = () => (
+  <svg {...svgProps} width="32" height="32">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+  </svg>
+);
+
+const misi = [
+  "Menyediakan platform deteksi alfabet bahasa isyarat real-time yang gratis dan mudah diakses.",
+  "Menggunakan AI (MediaPipe & Random Forest) untuk memberikan umpan balik pembelajaran instan.",
+  "Menjangkau anak tunarungu di wilayah terpencil.",
+  "Meningkatkan literasi dan komunikasi untuk mengatasi hambatan pendidikan inklusif.",
+];
+
+const masalah = [
+  {
+    icon: <IconBook />,
+    title: "Literasi Terbatas",
+    text: "Anak tunarungu di wilayah terpencil kesulitan mengakses materi pembelajaran bahasa isyarat yang berkualitas.",
+  },
+  {
+    icon: <IconHome />,
+    title: "Jarak dari SLB",
+    text: "Daerah yang jauh dari Sekolah Luar Biasa (SLB), membatasi akses pendidikan khusus.",
+  },
+  {
+    icon: <IconMessage />,
+    title: "Hambatan Komunikasi",
+    text: "Kurangnya pengetahuan bahasa isyarat menciptakan kesenjangan komunikasi antara anak tunarungu dan lingkungan sekitar.",
+  },
+];
 
 function TentangKamiPage() {
   return (
     <div className="tentang-kami-page">
-      {/* Bagian Header */}
+      {/* ===== Header ===== */}
       <section className="tentang-header">
-        <h1>Menghubungkan Dunia, Satu Isyarat demi Satu Isyarat</h1>
+        <h1>Tentang DEWANTARA</h1>
         <p>
-          Bvision lahir dari keyakinan bahwa teknologi dapat menjadi jembatan
-          untuk komunikasi yang lebih inklusif.
+          DEWANTARA lahir dari keyakinan bahwa teknologi dapat menjadi jembatan
+          untuk pendidikan inklusif dan komunikasi yang lebih baik bagi anak
+          tunarungu.
         </p>
       </section>
 
-      {/* Bagian Visi & Misi */}
+      {/* ===== Visi & Misi ===== */}
       <section className="visi-misi-section">
         <div className="visi-misi-container">
           <div className="visi-misi-item">
             <div className="item-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
+              <IconEye />
             </div>
             <h3>Visi Kami</h3>
             <p>
-              Menciptakan sebuah dunia di mana setiap individu, baik Tuli maupun
-              dengar, dapat berkomunikasi dengan lancar tanpa hambatan,
-              membangun pemahaman dan empati melalui kekuatan bahasa isyarat.
+              Menciptakan dunia di mana setiap anak, termasuk yang tunarungu di
+              wilayah terpencil, dapat mengakses pendidikan berkualitas melalui
+              teknologi AI. Mendukung{" "}
+              <strong>SDG 4 (Quality Education)</strong> dan{" "}
+              <strong>SDG 10 (Reduced Inequalities)</strong> untuk masa depan
+              yang lebih inklusif.
             </p>
           </div>
+
           <div className="visi-misi-item">
             <div className="item-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="9 11 12 14 22 4"></polyline>
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-              </svg>
+              <IconCheckSquare />
             </div>
             <h3>Misi Kami</h3>
             <ul>
-              <li>
-                Menyediakan platform belajar Abjad BISINDO yang gratis dan mudah
-                diakses.
-              </li>
-              <li>
-                Menggunakan AI untuk memberikan umpan balik secara real-time.
-              </li>
-              <li>
-                Meningkatkan kesadaran terhadap Bahasa Isyarat Indonesia dan
-                Budaya Tuli.
-              </li>
+              {misi.map((m) => (
+                <li key={m}>{m}</li>
+              ))}
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Bagian Teknologi */}
-      <section className="teknologi-section">
-        <div className="teknologi-container">
-          <h2>Teknologi di Balik Layar</h2>
-          <p className="teknologi-subtitle">
-            Dibangun dengan alat-alat modern untuk performa dan pengalaman
-            terbaik.
+      {/* ===== Masalah yang Kami Atasi ===== */}
+      <section className="masalah-section">
+        <div className="masalah-container">
+          <h2 className="masalah-title">Masalah yang Kami Atasi</h2>
+          <p className="masalah-subtitle">
+            DEWANTARA hadir untuk mengatasi tantangan nyata dalam pendidikan
+            anak tunarungu
           </p>
-          <div className="teknologi-grid">
-            {/* --- KARTU REACT --- */}
-            <div className="teknologi-card">
-              <div className="teknologi-icon">
-                {/* Ganti SVG dengan IMG */}
-                <img src={logoReact} alt="React Logo" />
-              </div>
-              <h4>Frontend: React.js</h4>
-            </div>
 
-            {/* --- KARTU PYTHON --- */}
-            <div className="teknologi-card">
-              <div className="teknologi-icon">
-                {/* Ganti SVG dengan IMG */}
-                <img src={logoPython} alt="Python Logo" />
-              </div>
-              <h4>Backend: Python & FastAPI</h4>
-            </div>
-
-            {/* --- KARTU MACHINE LEARNING --- */}
-            <div className="teknologi-card">
-              <div className="teknologi-icon">
-                {/* Ganti SVG dengan IMG */}
-                <img src={logoMl} alt="Machine Learning Logo" />
-              </div>
-              <h4>ML: MediaPipe & Scikit-learn</h4>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bagian Pengembang */}
-      <section className="pengembang-section">
-        <div className="pengembang-container">
-          <div className="profil-picture">
-            {/* Ganti dengan tag <img> jika Anda punya foto */}
-            <img src={profilePic} alt="[Nama Anda]" />
-          </div>
-          <div className="profil-info">
-            <h2>Developer</h2>
-            <h3>Abrar Wahid</h3>
-            <h4>Mahasiswa Informatika | AI/ML engineer & Software engineer</h4>
-            <p className="profil-bio">
-              seorang mahasiswa informatika yang memiliki ketertarikan besar di
-              bidang teknologi, khususnya machine learning, web development, dan
-              artificial intelligence (AI)
-            </p>
-            <div className="profil-links">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/abrarwahidd"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            </div>
+          <div className="masalah-grid">
+            {masalah.map((m) => (
+              <article className="masalah-card" key={m.title}>
+                <div className="masalah-icon">{m.icon}</div>
+                <h3>{m.title}</h3>
+                <p>{m.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
